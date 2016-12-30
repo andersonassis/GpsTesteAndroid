@@ -33,6 +33,7 @@ public class GpsService extends Service {
     Double distanciaFinal = 0.0;
     int velocidade = 0;
     int speed = 0;
+    Double distancia = 0.0;
 
 
     @Nullable
@@ -87,7 +88,7 @@ public class GpsService extends Service {
 
 
 
-    private void Vibrar() // metodo vibrar
+    private void Vibrar() // metodo para vibrar
     {
         Vibrator rr = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         long milliseconds = 1000;//'1 seg' é o tempo em milissegundos, é basicamente o tempo de duração da vibração. portanto, quanto maior este numero, mais tempo de vibração você irá ter
@@ -95,7 +96,7 @@ public class GpsService extends Service {
     }
 
     public  double distance(double lat1, double lon1, double lat2, double lon2, String unit) {//metodo para calcular distancia
-        Double distancia = 0.0;
+       
         if (lat1 !=0) {//if para verificar se o lat1 esta cheio
             double theta = lon1 - lon2;
             double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
