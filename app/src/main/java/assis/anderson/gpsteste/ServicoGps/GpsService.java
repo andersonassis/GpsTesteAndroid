@@ -53,9 +53,9 @@ public class GpsService extends Service {
                 speed=(int) ((location.getSpeed()*3600)/1000);//pega a velocidade em movimento
                 velocidade = speed;//passando o valor da velocidade para a variavel velocidade
 
-                distance(latAnte,LongAnte, latitude,longitude,"K");//chamando metodo do calcular distancia onde os parametros
-                latAnte  = latitude;//guarda a ultima latitude     // latAnt,longAnte = ultimos valores e latitude,longitude = valores atuais
-                LongAnte = longitude;//guarada a ultima longitude
+                distance(latAnte,LongAnte, latitude,longitude,"K");    //chamando metodo do calcular distancia onde os parametros
+                latAnte  = latitude;//guarda a ultima latitude        // latAnt,longAnte = ultimos valores e latitude,longitude = valores atuais
+                LongAnte = longitude;//guarda a ultima longitude
 
                 if (latitude != 0) {
                     Vibrar();//chama a vibração quando atualiza o gps
@@ -96,7 +96,7 @@ public class GpsService extends Service {
     }
 
     public  double distance(double lat1, double lon1, double lat2, double lon2, String unit) {//metodo para calcular distancia
-       
+
         if (lat1 !=0) {//if para verificar se o lat1 esta cheio
             double theta = lon1 - lon2;
             double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
@@ -115,7 +115,7 @@ public class GpsService extends Service {
                 distanciaFinal = Double.valueOf(ss);
                 distancia = 0.0;
 
-                //passando o valores para outra tela
+                //passando o valores para outra tela nos textViews
                 Intent i = new Intent("location_update");
                 i.putExtra("distancia", distanciaFinal); //valor km
                 i.putExtra("velo",velocidade);//valor velocidade

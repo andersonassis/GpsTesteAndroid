@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnFimGps;
     private TextView texto,txtVelocidade;
     private BroadcastReceiver broadcastReceiver;
-    String id;
-    String vel;
+    String id; //variavel para receber o valor da outra activity
+    String vel; //variavel para receber o valor da outra activity
 
 
     @Override

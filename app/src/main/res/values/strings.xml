@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">GpsTeste</string>
-    <string name="inicio_gps">Inicio GPS</string>
-    <string name="fim_gps">Parar GPS</string>
+    <string name="app_name">Contagem de KM </string>
+    <string name="inicio_gps">Inicio KM</string>
+    <string name="fim_gps">Parar contagem do KM</string>
     <string name="txt_gps">Aqui o KM </string>
     <string name="txt_velo">Aqui a velocidade </string>
     <string name="txt_km">Distancia em KM :</string>

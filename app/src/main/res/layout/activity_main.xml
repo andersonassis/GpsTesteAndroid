@@ -13,16 +13,22 @@
 
     <Button
         android:text="@string/inicio_gps"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/txtDistancia"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/btnInicio" />
 
+    <TextView
+        android:id="@+id/txtEspaco0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
     <Button
         android:text="@string/fim_gps"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/txtDistancia"
         android:layout_alignParentLeft="true"
@@ -40,6 +46,8 @@
     android:id="@+id/txtDistancia"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:textSize="25sp"
+    android:textColor="@android:color/holo_blue_light"
     android:text="@string/txt_gps" />
 
     <TextView
@@ -53,6 +61,8 @@
         android:id="@+id/txtVelocidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@android:color/holo_blue_light"
         android:text="@string/txt_velo" />
 
 
