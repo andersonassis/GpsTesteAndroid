@@ -30,10 +30,11 @@ public class GpsService extends Service {
     double longitude  = 0.0;
     double latAnte    = 0.0;
     double LongAnte   = 0.0;
-    Double distanciaFinal = 0.0;
+    double distanciaFinal = 0.0;
     int velocidade = 0;
     int speed = 0;
-    Double distancia = 0.0;
+    double distancia = 0.0;
+    double precisao = 0.0;
 
 
     @Nullable
@@ -50,8 +51,13 @@ public class GpsService extends Service {
             public void onLocationChanged(Location location) {
                 latitude  = location.getLatitude();//pega a latitude
                 longitude = location.getLongitude();//pega a longitude
+                precisao  = location.getAccuracy();
                 speed=(int) ((location.getSpeed()*3600)/1000);//pega a velocidade em movimento
                 velocidade = speed;//passando o valor da velocidade para a variavel velocidade
+
+                if (velocidade <3){
+                    velocidade = 0;
+                }
 
                 distance(latAnte,LongAnte, latitude,longitude,"K");    //chamando metodo do calcular distancia onde os parametros
                 latAnte  = latitude;//guarda a ultima latitude        // latAnt,longAnte = ultimos valores e latitude,longitude = valores atuais
@@ -119,6 +125,7 @@ public class GpsService extends Service {
                 Intent i = new Intent("location_update");
                 i.putExtra("distancia", distanciaFinal); //valor km
                 i.putExtra("velo",velocidade);//valor velocidade
+                i.putExtra("precisao",precisao);
                 sendBroadcast(i);
 
             } else if (unit.equals("N")) {//so entra aqui se for em milhas

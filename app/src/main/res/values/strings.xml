@@ -6,5 +6,6 @@
     <string name="txt_velo">Aqui a velocidade </string>
     <string name="txt_km">Distancia em KM :</string>
     <string name="txt_velocidade">Velocidade :</string>
+    <string name="txt_precisao">Precisão :</string>
 
 </resources>

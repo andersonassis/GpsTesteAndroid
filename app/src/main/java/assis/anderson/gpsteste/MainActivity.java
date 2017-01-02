@@ -16,10 +16,11 @@ import assis.anderson.gpsteste.Toast.ToastManager;
 public class MainActivity extends AppCompatActivity {
     private Button btnInicioGps;
     private Button btnFimGps;
-    private TextView texto,txtVelocidade;
+    private TextView texto,txtVelocidade,txtPrecisao;
     private BroadcastReceiver broadcastReceiver;
     String id; //variavel para receber o valor da outra activity
     String vel; //variavel para receber o valor da outra activity
+    String precisao;
 
 
     @Override
@@ -31,12 +32,15 @@ public class MainActivity extends AppCompatActivity {
                 public void onReceive(Context context, Intent intent) {
                     texto         = (TextView)findViewById(R.id.txtDistancia);
                     txtVelocidade = (TextView)findViewById(R.id.txtVelocidade);
+                    txtPrecisao    = (TextView)findViewById(R.id.txtPrecisao);
                     ToastManager.show(getApplicationContext(), "Calculando metros: "  +intent.getExtras().get("distancia"), ToastManager.INFORMATION);
                     id = String.valueOf(intent.getExtras().get("distancia"));
                     vel = String.valueOf(intent.getExtras().get("velo"));
+                    precisao = String.valueOf(intent.getExtras().get("precisao"));
 
-                    texto.setText("Distancia em KM:" + id);
-                    txtVelocidade.setText("Velocidade: " + vel);
+                    texto.setText("Distancia em KM:" + id); //texto que vai aparecer na tela em km
+                    txtVelocidade.setText("Velocidade: " + vel);//texto que vai aparecer na tela em velocidade
+                    txtPrecisao.setText("Precisão: " + precisao);
                 }
             };
         }
